@@ -1,18 +1,9 @@
 %option noyywrap
 %{
 #include <stdio.h>
+#include "tokens.h"
 
 #define LOG(...) printf(__VA_ARGS__);putchar('\n');
-
-enum TOKEN {
-    T_INTEGER = 1,
-    T_FLOAT,
-    T_IDENTIFIER,
-    T_STRING,
-    T_KEYWORD,
-    T_OPERATOR,
-    T_DELIMITER,
-};
 
 int line = 0;
 
