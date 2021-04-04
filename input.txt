@@ -1,0 +1,3 @@
+func test;
+int a = 43;
+int __ = 3.14e-2;
