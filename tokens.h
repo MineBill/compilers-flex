@@ -6,4 +6,5 @@ enum TOKEN {
     T_KEYWORD,
     T_OPERATOR,
     T_DELIMITER,
+    T_ERROR,
 };
