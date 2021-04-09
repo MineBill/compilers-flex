@@ -1,6 +1,5 @@
 %option noyywrap
 %x comment
-%x single_comment
 %{
 #include <stdio.h>
 #include "tokens.h"
@@ -36,7 +35,7 @@ float       ((([1-9][0-9]*)|0)(\.[0-9]+)?([eE]-?(([1-9][0-9]*)|0))?)
 {newline}       {line++;}
 ";"             {PRINTTOK(T_DELIMITER, yytext); return T_DELIMITER;}
 "/*"            {BEGIN(comment);}
-"//"            {BEGIN(single_comment);}
+"//".*          {}
 
 {keyword} {
     PRINTTOK(T_KEYWORD, yytext);
@@ -79,9 +78,6 @@ float       ((([1-9][0-9]*)|0)(\.[0-9]+)?([eE]-?(([1-9][0-9]*)|0))?)
 <comment>"*/"   {BEGIN(0);}
 <comment>"\n"   {line++;}
 <comment>.      {}
-
-<single_comment>"\n"   {line++; BEGIN(0);}
-<single_comment>.      {}
 
 .               {yyerror("Invalid character"); exit(1);}
 %%

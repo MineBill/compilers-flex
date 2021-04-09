@@ -1,12 +1,14 @@
 func test;
 // This is a single line comment
+// This is a single line comment
+// This is a single line comment
+// This is a single line comment
+// This is a single line comment
+// This is a single line comment
 int a = 43;
 int string = "SOME tSing awdok w";
 /*
     And this is a multiline comment
 */
 int test = &a + 2;
-int ss = "multi"
-line string
-this is";
 int __ = 3.14e-2;
